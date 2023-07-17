@@ -67,3 +67,8 @@
   background: rgb(215, 127, 12);
   background: linear-gradient(90deg, rgba(215, 127, 12, 1) 0%, rgba(253, 220, 29, 1) 100%);
 }
+
+.total {
+  font-size: 1rem;
+  margin-left: -1.5rem;
+}
