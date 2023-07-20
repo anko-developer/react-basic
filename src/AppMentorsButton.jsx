@@ -1,26 +1,26 @@
-import React, { memo, useCallback, useMemo, useReducer } from 'react';
-import personReducer from './reducer/person-reducer';
+import React, { memo, useCallback, useMemo, useReducer } from 'react'
+import personReducer from './reducer/person-reducer'
 
 export default function AppMentor() {
-  const [person, dispatch] = useReducer(personReducer, initialPerson);
-  
+  const [person, dispatch] = useReducer(personReducer, initialPerson)
+
   const handleUpdate = useCallback(() => {
-    const prev = prompt('누구의 이름을 바꾸고 싶은가요?');
-    const current = prompt('이름을 무엇으로 바꾸고 싶은가요?');
+    const prev = prompt('누구의 이름을 바꾸고 싶은가요?')
+    const current = prompt('이름을 무엇으로 바꾸고 싶은가요?')
 
-    dispatch({type: 'updated', prev, current});
-  }, []);
+    dispatch({ type: 'updated', prev, current })
+  }, [])
   const handleAdd = useCallback(() => {
-    const name = prompt('추가하실 멘토의 이름?');
-    const title = prompt('추가하실 멘토의 직업?');
-    
-    dispatch({type: 'added', name, title});
-  }, []);
-  const handleDelete = useCallback(() => {
-    const name = prompt('누구의 이름을 삭제하고 싶은가요?');
+    const name = prompt('추가하실 멘토의 이름?')
+    const title = prompt('추가하실 멘토의 직업?')
 
-    dispatch({type: 'deleted', name});
-  }, []);
+    dispatch({ type: 'added', name, title })
+  }, [])
+  const handleDelete = useCallback(() => {
+    const name = prompt('누구의 이름을 삭제하고 싶은가요?')
+
+    dispatch({ type: 'deleted', name })
+  }, [])
   return (
     <div>
       <h1>
@@ -34,16 +34,16 @@ export default function AppMentor() {
           </li>
         ))}
       </ul>
-      <Button text='멘토 바꾸기' onClick={handleUpdate} />
-      <Button text='멘토 추가하기' onClick={handleAdd} />
-      <Button text='멘토 삭제하기' onClick={handleDelete} />
+      <Button text="멘토 바꾸기" onClick={handleUpdate} />
+      <Button text="멘토 추가하기" onClick={handleAdd} />
+      <Button text="멘토 삭제하기" onClick={handleDelete} />
     </div>
-  );
+  )
 }
 
 const Button = memo(({ text, onClick }) => {
-  console.log('Button', text, 're-rendering 😜');
-  const result = useMemo(() => calculateSomething(), []);
+  console.log('Button', text, 're-rendering 😜')
+  const result = useMemo(() => calculateSomething(), [])
   return (
     <button
       onClick={onClick}
@@ -56,17 +56,15 @@ const Button = memo(({ text, onClick }) => {
     >
       {`${text} ${result}`}
     </button>
-  );
-});
+  )
+})
 
 function calculateSomething() {
   for (let i = 0; i < 1000; i++) {
-    console.log('😆');
+    console.log('😆')
   }
-  return 10;
+  return 10
 }
-
-
 
 const initialPerson = {
   name: '앙꼬',
@@ -79,6 +77,6 @@ const initialPerson = {
     {
       name: '제임스',
       title: '시니어개발자',
-    }
-  ]
-};
+    },
+  ],
+}
