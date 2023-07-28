@@ -9,7 +9,7 @@ export default function AppXY() {
       className="container"
       onPointerMove={(e) => {
         // setPosition({x: e.clientX, y: e.clientY});
-        // setPosition(prev => ({ x: e.clientX, y: prev.y }));
+        // setPosition(prev => ({ x: e.clientX, y: prev.y })); 
         setPosition((prev) => ({ ...prev, x: e.clientX }))
       }}
     >
